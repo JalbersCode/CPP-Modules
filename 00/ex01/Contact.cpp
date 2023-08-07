@@ -6,7 +6,7 @@
 /*   By: jalbers <jalbers@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/06 00:44:31 by josephalber       #+#    #+#             */
-/*   Updated: 2023/08/07 14:40:20 by jalbers          ###   ########.fr       */
+/*   Updated: 2023/08/07 20:40:28 by jalbers          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,9 @@ std::string Contact::get_value(int field) const {
 }
 
 void	Contact::print_contact_teaser(int index) {
-	std::string	index_str = std::to_string(index);
+	// std::string	index_str = std::to_string(index);
+	std::string	index_str = " ";
+	index_str[0] = index + '0';
 
 	std::cout << get_formatted_string(index_str) << "|";	
 	std::cout << get_formatted_string(this->first_name) << "|";	

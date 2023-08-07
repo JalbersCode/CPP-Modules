@@ -6,7 +6,7 @@
 /*   By: jalbers <jalbers@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/06 14:24:16 by josephalber       #+#    #+#             */
-/*   Updated: 2023/08/07 14:43:37 by jalbers          ###   ########.fr       */
+/*   Updated: 2023/08/07 20:39:16 by jalbers          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,12 +61,11 @@ int	prompt_user_to_select_contact(int index_of_last_contact) {
 
 	std::cout << "Enter index of contact to display: ";
 	std::getline(std::cin, user_input);
-	try {
-		selected_index = std::stoi(user_input);
-	} catch (std::exception& e) {
-		std::cout << "Please enter a valid number" << std::endl;
+	if (user_input.length() > 1) {
+		std::cout << "Pls enter a single digit" << std::endl;
 		return (prompt_user_to_select_contact(index_of_last_contact));
 	}
+	selected_index = user_input[0] - '0';	
 	if (selected_index < 0 || selected_index > index_of_last_contact) {
 		std::cout << "Index does not exist. Try again." << std::endl;
 		return (prompt_user_to_select_contact(index_of_last_contact));

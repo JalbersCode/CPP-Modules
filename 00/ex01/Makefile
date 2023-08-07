@@ -3,17 +3,17 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: josephalbers <josephalbers@student.42.f    +#+  +:+       +#+         #
+#    By: jalbers <jalbers@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/08/06 12:25:48 by josephalber       #+#    #+#              #
-#    Updated: 2023/08/07 02:00:02 by josephalber      ###   ########.fr        #
+#    Updated: 2023/08/07 20:28:45 by jalbers          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME		= PhoneBook
 	
 CC			= c++
-FLAGS		= -Wall -Wextra -Werror
+FLAGS		= -Wall -Wextra -Werror -std=c++98
 RM			= rm -rf
 
 OBJDIR = .objFiles

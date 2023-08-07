@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: ncolomer <ncolomer@student.42.fr>          +#+  +:+       +#+         #
+#    By: jalbers <jalbers@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/12/13 18:47:47 by ncolomer          #+#    #+#              #
-#    Updated: 2019/12/28 16:05:10 by ncolomer         ###   ########.fr        #
+#    Updated: 2023/08/07 20:28:01 by jalbers          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,7 +15,7 @@ OBJS			= $(SRCS:.cpp=.o)
 
 CXX				= clang++
 RM				= rm -f
-CXXFLAGS		= -Wall -Wextra -Werror -I.
+CXXFLAGS		= -Wall -Wextra -Werror -std=c++98 -I.
 
 NAME			= megaphone
 

@@ -6,13 +6,13 @@
 /*   By: jalbers <jalbers@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/07 14:47:54 by jalbers           #+#    #+#             */
-/*   Updated: 2023/08/07 20:20:40 by jalbers          ###   ########.fr       */
+/*   Updated: 2023/08/07 20:47:58 by jalbers          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Account.hpp"
 #include <iostream>
-#include <chrono>
+// #include <chrono>
 #include <ctime>
 #include <iomanip>
 
@@ -55,11 +55,11 @@ Account::~Account()
 
 void Account::_displayTimestamp(void)
 {
-	auto now = std::chrono::system_clock::now();
-	std::time_t timeNow = std::chrono::system_clock::to_time_t(now);
-	struct std::tm timeInfo;
-	localtime_r(&timeNow, &timeInfo);
-	std::cout << "[" << std::put_time(&timeInfo, "%Y%m%d_%H%M%S") << "] ";
+	std::time_t now = std::time(NULL);
+	struct std::tm *timeInfo = std::localtime(&now);
+	char buffer[20];
+	std::strftime(buffer, sizeof(buffer), "[%Y%m%d_%H%M%S] ", timeInfo);
+	std::cout << buffer;
 }
 
 void Account::displayAccountsInfos(void)
@@ -74,16 +74,16 @@ void Account::displayAccountsInfos(void)
 void Account::displayStatus(void) const
 {
 	Account::_displayTimestamp();
-	std::cout << "index: " << _accountIndex << "; ";
-	std::cout << "amount: " << _amount << "; ";
-	std::cout << "deposits: " << _nbDeposits << "; ";
-	std::cout << "withdrawals: " << _nbWithdrawals << std::endl;
+	std::cout << "index:" << _accountIndex << ";";
+	std::cout << "amount:" << _amount << ";";
+	std::cout << "deposits:" << _nbDeposits << ";";
+	std::cout << "withdrawals:" << _nbWithdrawals << std::endl;
 }
 
 void Account::makeDeposit( int deposit )
 {
 	Account::_displayTimestamp();
-	std::cout << "index: " << _accountIndex << "; ";
+	std::cout << "index:" << _accountIndex << ";";
 	std::cout << "p_amount:" << this->_amount << ";";
 	std::cout << "deposit:" << deposit << ";";
 	this->_amount += deposit;
@@ -97,7 +97,7 @@ void Account::makeDeposit( int deposit )
 bool Account::makeWithdrawal( int withdrawal )
 {
 	Account::_displayTimestamp();
-	std::cout << "index: " << _accountIndex << "; ";
+	std::cout << "index:" << _accountIndex << ";";
 	std::cout << "p_amount:" << this->_amount << ";";
 	if (withdrawal > this->_amount) {
 		std::cout << "withdrawal:refused" << std::endl;
