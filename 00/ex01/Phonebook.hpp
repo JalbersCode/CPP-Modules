@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Phonebook.hpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: josephalbers <josephalbers@student.42.f    +#+  +:+       +#+        */
+/*   By: jalbers <jalbers@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/06 14:24:38 by josephalber       #+#    #+#             */
-/*   Updated: 2023/08/07 02:01:26 by josephalber      ###   ########.fr       */
+/*   Updated: 2023/08/07 14:44:12 by jalbers          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ class Phonebook {
 	
 	public:
 		Phonebook();
-		void	add_contact(const Contact &contact);
+		void	add_contact_to_array(const Contact &contact);
 		Contact	get_contact(int index) const;
 		int		get_contact_array_size() const;
 		int		add_contact();

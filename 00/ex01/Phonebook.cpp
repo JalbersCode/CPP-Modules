@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Phonebook.cpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: josephalbers <josephalbers@student.42.f    +#+  +:+       +#+        */
+/*   By: jalbers <jalbers@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/06 14:24:16 by josephalber       #+#    #+#             */
-/*   Updated: 2023/08/07 02:10:53 by josephalber      ###   ########.fr       */
+/*   Updated: 2023/08/07 14:43:37 by jalbers          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ Phonebook::Phonebook() {
 	this->contact_array_size= 0;
 }
 
-void	Phonebook::add_contact(const Contact &contact) {
+void	Phonebook::add_contact_to_array(const Contact &contact) {
 	if (contact_array_size == 8)
 		contact_array[7] = contact;
 	else {
@@ -50,7 +50,7 @@ int Phonebook::add_contact() {
 		else
 			contact.set_value(userInput, i);
 	}
-	this->add_contact(contact);
+	this->add_contact_to_array(contact);
 	std::cout << "Contact added successfully!" << std::endl;
 	return (0);
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Contact.cpp                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: josephalbers <josephalbers@student.42.f    +#+  +:+       +#+        */
+/*   By: jalbers <jalbers@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/06 00:44:31 by josephalber       #+#    #+#             */
-/*   Updated: 2023/08/07 01:58:59 by josephalber      ###   ########.fr       */
+/*   Updated: 2023/08/07 14:40:20 by jalbers          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ std::string Contact::get_value(int field) const {
 
 void	Contact::print_contact_teaser(int index) {
 	std::string	index_str = std::to_string(index);
-	
+
 	std::cout << get_formatted_string(index_str) << "|";	
 	std::cout << get_formatted_string(this->first_name) << "|";	
 	std::cout << get_formatted_string(this->last_name) << "|";	
