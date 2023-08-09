@@ -1,34 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   HumanB.cpp                                         :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jalbers <jalbers@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/08/08 16:04:53 by jalbers           #+#    #+#             */
-/*   Updated: 2023/08/09 08:10:16 by jalbers          ###   ########.fr       */
+/*   Created: 2023/08/09 08:18:42 by jalbers           #+#    #+#             */
+/*   Updated: 2023/08/09 16:46:44 by jalbers          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "HumanB.hpp"
+#include "Sed.hpp"
 
-HumanB::HumanB(const std::string& name)
-    : name(name), weapon(NULL)
+int main(int argc, char *argv[])
 {
-    
-}
-
-HumanB::~HumanB()
-{
-    
-}
-
-void    HumanB::attack(void) const
-{
-    std::cout << this->name << " attacks with their " << this->weapon->getType() << std::endl;
-}
-
-void    HumanB::setWeapon(const Weapon& weapon_obj)
-{
-    this->weapon = &weapon_obj;
+	if (argc != 4)
+		return (std::cout << "Wrong number of arguments" << std::endl, 1);
+	if (!argv[2][0])
+		return (std::cout << "Search string cannot be empty..." << std::endl, 1);
+	Sed	sed_obj(argv[1], argv[2], argv[3]);
+	if (sed_obj.replace() == 1)
+		return (1);
+	return (0);	
 }
