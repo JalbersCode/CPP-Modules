@@ -1,32 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Harl.hpp                                           :+:      :+:    :+:   */
+/*   Fixed.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jalbers <jalbers@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/08/09 16:52:25 by jalbers           #+#    #+#             */
-/*   Updated: 2023/08/10 11:40:23 by jalbers          ###   ########.fr       */
+/*   Created: 2023/08/10 12:19:18 by jalbers           #+#    #+#             */
+/*   Updated: 2023/08/10 15:46:40 by jalbers          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef HARL_HPP
-#define HARL_HPP
+#ifndef FIXED_HPP
+#define FIXED_HPP
 
 #include <iostream>
 
-class Harl
+class Fixed
 {
-private:
-    void debug(void);
-    void info(void);
-    void warning(void);
-    void error(void);
+	private:
+		int					fixed_num;
+		static const int	num_of_bits = 8;
 
-public:
-    Harl();
-    ~Harl();
-    void complain(std::string level);
+
+	public:
+		Fixed();
+		Fixed(const Fixed& other);
+		~Fixed();
+		Fixed& 	operator=(const Fixed& other);
+		int		getRawBits(void) const;
+		void	setRawBits(int const raw);
+
 };
-
 #endif

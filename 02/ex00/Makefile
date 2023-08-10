@@ -5,31 +5,28 @@
 #                                                     +:+ +:+         +:+      #
 #    By: jalbers <jalbers@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2023/08/08 14:40:07 by jalbers           #+#    #+#              #
-#    Updated: 2023/08/10 13:05:42 by jalbers          ###   ########.fr        #
+#    Created: 2023/08/10 12:58:31 by jalbers           #+#    #+#              #
+#    Updated: 2023/08/10 13:27:02 by jalbers          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME		= SED
-
+NAME		= orthodox
 CC			= c++
 FLAGS		= -Wall -Wextra -Werror -std=c++98
 RM			= rm -rf
 
+FILES		= main Fixed
+HEADER		= Fixed.hpp
 OBJDIR = .objFiles
-
-FILES		= main Sed
-
 SRC			= $(FILES:=.cpp)
 OBJ			= $(addprefix $(OBJDIR)/, $(FILES:=.o))
-HEADER		= Sed.hpp
 
 #Colors:
-GREEN		=	\e[92;5;118m
-YELLOW		=	\e[93;5;226m
-GRAY		=	\e[33;2;37m
-RESET		=	\e[0m
-CURSIVE		=	\e[33;3m
+GREEN		= \e[92;5;118m
+YELLOW		= \e[93;5;226m
+GRAY		= \e[33;2;37m
+RESET		= \e[0m
+CURSIVE		= \e[33;3m
 
 #Debug 
 ifeq ($(DEBUG), 1)

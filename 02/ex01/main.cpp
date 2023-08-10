@@ -1,32 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Harl.hpp                                           :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jalbers <jalbers@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/08/09 16:52:25 by jalbers           #+#    #+#             */
-/*   Updated: 2023/08/10 11:40:23 by jalbers          ###   ########.fr       */
+/*   Created: 2023/08/10 13:16:57 by jalbers           #+#    #+#             */
+/*   Updated: 2023/08/10 18:28:58 by jalbers          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef HARL_HPP
-#define HARL_HPP
+#include "Fixed.hpp"
 
-#include <iostream>
-
-class Harl
+int main(void)
 {
-private:
-    void debug(void);
-    void info(void);
-    void warning(void);
-    void error(void);
+    Fixed a(10);
 
-public:
-    Harl();
-    ~Harl();
-    void complain(std::string level);
-};
-
-#endif
+    std::cout << a << std::endl;
+    
+    return (0);
+}
