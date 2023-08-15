@@ -6,26 +6,21 @@
 /*   By: josephalbers <josephalbers@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/10 13:16:57 by jalbers           #+#    #+#             */
-/*   Updated: 2023/08/11 19:13:04 by josephalber      ###   ########.fr       */
+/*   Updated: 2023/08/13 14:33:05 by josephalber      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Fixed.hpp"
+#include "Point.hpp"
 
-int main( void ) {
-    Fixed a;
-    Fixed const b( 10 );
-    Fixed const c( 42.42f );
-    Fixed const d( b );
+int main( void )
+{
+    Point a(150, 35.123);
+    Point b(23.234, 40);
+    Point c(0, 0);
+    Point d(51, 12);
     
-    a = Fixed( 1234.4321f );
-    std::cout << "a is " << a << std::endl;
-    std::cout << "b is " << b << std::endl;
-    std::cout << "c is " << c << std::endl;
-    std::cout << "d is " << d << std::endl;
-    std::cout << "a is " << a.toInt() << " as integer" << std::endl;
-    std::cout << "b is " << b.toInt() << " as integer" << std::endl;
-    std::cout << "c is " << c.toInt() << " as integer" << std::endl;
-    std::cout << "d is " << d.toInt() << " as integer" << std::endl;
-    return 0;
+    if (bsp(a, b, c, d))
+        std::cout << "Point is inside the Triangle" << std::endl;
+    else
+        std::cout << "Point is outside the Trinagle" << std::endl;
 }

@@ -6,7 +6,7 @@
 /*   By: jalbers <jalbers@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/10 12:40:18 by jalbers           #+#    #+#             */
-/*   Updated: 2023/08/15 15:58:25 by jalbers          ###   ########.fr       */
+/*   Updated: 2023/08/15 15:59:57 by jalbers          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,14 +20,15 @@ Fixed::Fixed(void)
 
 Fixed::Fixed(const int num)
 {
-    std::cout << "Default constructor called" << std::endl;
-    this->fixed_num = num << 8;
+    std::cout << "Int constructor called" << std::endl;
+    // this->fixed_num = num << num_of_fractional_bits;
+    this->fixed_num = num * (1 << num_of_fractional_bits);
 }
 
 Fixed::Fixed(const float num)
 {
-    std::cout << "Default constructor called" << std::endl;
-    this->fixed_num = num;
+    std::cout << "Float constructor called" << std::endl;
+    this->fixed_num = std::roundf(num * ( 1 << num_of_fractional_bits));
 }
 
 Fixed::Fixed(const Fixed& other)
@@ -51,27 +52,32 @@ Fixed& Fixed::operator=(const Fixed& other)
 
 int Fixed::getRawBits(void) const
 {
-    std::cout << "GetRaBits member function called" << std::endl;
     return (fixed_num);
 }
 
 void    Fixed::setRawBits(int const raw)
 {
-    this->fixed_num = raw;    
+    this->fixed_num = raw;
 }
 
 float   Fixed::toFloat( void ) const
 {
-    return (0);    
+    float   num;
+
+    num = (float)this->fixed_num / (1 << num_of_fractional_bits);
+    return (num);
 }
 
 int Fixed::toInt( void ) const
 {
-    return (0);    
+    int num;
+
+    num = this->fixed_num >> 8;
+    return (num);
 }
 
 std::ostream&	operator<<(std::ostream& os, const Fixed& fixed_obj)
 {
-    os << fixed_obj.getRawBits();
+    os << (float)fixed_obj.getRawBits() / (1 << 8);
     return (os);
 }
