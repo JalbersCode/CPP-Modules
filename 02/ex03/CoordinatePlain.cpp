@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   CoordinatePlain.cpp                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: josephalbers <josephalbers@student.42.f    +#+  +:+       +#+        */
+/*   By: jalbers <jalbers@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/12 01:33:03 by josephalber       #+#    #+#             */
-/*   Updated: 2023/08/13 14:37:06 by josephalber      ###   ########.fr       */
+/*   Updated: 2023/08/15 16:13:17 by jalbers          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,17 +74,17 @@ bool    CoordinatePlain::is_inside_triangle(const Fixed& y, const Fixed& x)
 void    CoordinatePlain::write_coordinate(int y, int x)
 {
     if (y == a.get_y().toInt() && x == a.get_x().toInt())
-        std::cout << "\033[33mA\033[0m";  
+        std::cout << "\033[1m\033[33mA\033[0m";  
     else if (y == b.get_y().toInt() && x == b.get_x().toInt())
-        std::cout << "\033[33mB\033[0m";  
+        std::cout << "\033[1m\033[33mB\033[0m";  
     else if (y == c.get_y().toInt() && x == c.get_x().toInt())
-        std::cout << "\033[33mC\033[0m";  
+        std::cout << "\033[1m\033[33mC\033[0m";  
     else if (y == point.get_y().toInt() && x == point.get_x().toInt())
-        std::cout << "\033[34mX\033[0m";
+        std::cout << "\033[1m\033[34mX\033[0m";
     else if (this->is_inside_triangle(Fixed(y), Fixed(x)))
-        std::cout << "\033[32m·\033[0m";
+        std::cout << "\033[1m\033[32mO\033[0m";
     else
-        std::cout << "\033[31m·\033[0m";
+        std::cout << "\033[2m\033[31mO\033[0m";
 }
 
 void    CoordinatePlain::draw(int padding)
