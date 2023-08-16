@@ -6,7 +6,7 @@
 /*   By: jalbers <jalbers@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/16 11:54:06 by jalbers           #+#    #+#             */
-/*   Updated: 2023/08/16 12:25:33 by jalbers          ###   ########.fr       */
+/*   Updated: 2023/08/16 16:04:40 by jalbers          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@ Dog::Dog()
 
 Dog::~Dog()
 {
+    std::cout << "Dog destructor called" << std::endl;
 }
 
 void    Dog::makeSound(void) const

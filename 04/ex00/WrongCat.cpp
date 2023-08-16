@@ -6,7 +6,7 @@
 /*   By: jalbers <jalbers@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/16 11:54:23 by jalbers           #+#    #+#             */
-/*   Updated: 2023/08/16 12:41:11 by jalbers          ###   ########.fr       */
+/*   Updated: 2023/08/16 16:05:14 by jalbers          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@ WrongCat::WrongCat()
 
 WrongCat::~WrongCat()
 {
+    std::cout << "WrongCat destructor called" << std::endl;
 }
 
 void    WrongCat::makeSound(void) const

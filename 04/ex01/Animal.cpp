@@ -6,7 +6,7 @@
 /*   By: jalbers <jalbers@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/16 11:46:48 by jalbers           #+#    #+#             */
-/*   Updated: 2023/08/16 12:25:14 by jalbers          ###   ########.fr       */
+/*   Updated: 2023/08/16 16:09:36 by jalbers          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@ Animal::Animal()
 
 Animal::~Animal()
 {
+    std::cout << "Animal destructor called" << std::endl;
 }
 
 Animal::Animal(std::string type_name)

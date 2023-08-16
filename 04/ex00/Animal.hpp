@@ -6,7 +6,7 @@
 /*   By: jalbers <jalbers@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/16 11:46:04 by jalbers           #+#    #+#             */
-/*   Updated: 2023/08/16 12:30:23 by jalbers          ###   ########.fr       */
+/*   Updated: 2023/08/16 15:27:29 by jalbers          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ class Animal
 
     public:
         Animal();
-        ~Animal();
+        virtual ~Animal();
         Animal(std::string type_name);
         std::string getType(void) const;
         virtual void    makeSound(void) const;

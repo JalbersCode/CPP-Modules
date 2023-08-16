@@ -6,13 +6,13 @@
 #    By: jalbers <jalbers@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/08/16 11:47:10 by jalbers           #+#    #+#              #
-#    Updated: 2023/08/16 14:56:45 by jalbers          ###   ########.fr        #
+#    Updated: 2023/08/16 15:19:43 by jalbers          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME		= Animal
+NAME		= Brain 
 CC			= c++
-FLAGS		= -Wall -Wextra -Werror -std=c++98 -fsanitize=undefined
+FLAGS		= -Wall -Wextra -Werror -std=c++98
 RM			= rm -rf
 
 FILES		= main Animal Cat Dog WrongCat WrongAnimal Brain

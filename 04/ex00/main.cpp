@@ -6,7 +6,7 @@
 /*   By: jalbers <jalbers@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/16 11:47:46 by jalbers           #+#    #+#             */
-/*   Updated: 2023/08/16 12:43:00 by jalbers          ###   ########.fr       */
+/*   Updated: 2023/08/16 15:27:50 by jalbers          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,8 @@ int	main(void)
     i->makeSound(); //will output the cat sound!
     j->makeSound();
     meta->makeSound();
-    
+    delete(meta);
+    delete(j);
+    delete(i);
     return (0);
 }
