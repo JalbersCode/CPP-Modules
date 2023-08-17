@@ -1,32 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Cat.cpp                                            :+:      :+:    :+:   */
+/*   AMateria.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jalbers <jalbers@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/08/16 11:54:23 by jalbers           #+#    #+#             */
-/*   Updated: 2023/08/17 12:31:15 by jalbers          ###   ########.fr       */
+/*   Created: 2023/08/17 14:15:05 by jalbers           #+#    #+#             */
+/*   Updated: 2023/08/17 16:45:40 by jalbers          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Cat.hpp"
+#include "AMateria.hpp"
 
-Cat::Cat()
-    : Animal("Cat")
+AMateria::AMateria(std::string const &type)
+    : _type(type)
 {
-    std::cout << "Cat constructor called" << std::endl;
-    this->_brain = new Brain();
 }
 
-Cat::~Cat()
+// AMateria::~AMateria()
+// {
+// }
+
+std::string const &AMateria::getType() const
 {
-    delete (this->_brain);
-    std::cout << "Cat destructor called" << std::endl;
+    return (this->_type);
 }
 
-void Cat::makeSound(void) const
+void AMateria::use(ICharacter &target)
 {
-    std::cout << "Miauuuuu" << std::endl;
-    return;
+    (void)target;
+    std::cout << "undefined" << std::endl;  
 }

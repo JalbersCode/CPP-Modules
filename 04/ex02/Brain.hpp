@@ -1,32 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Cat.cpp                                            :+:      :+:    :+:   */
+/*   Brain.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jalbers <jalbers@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/08/16 11:54:23 by jalbers           #+#    #+#             */
-/*   Updated: 2023/08/17 12:31:15 by jalbers          ###   ########.fr       */
+/*   Created: 2023/08/16 14:50:44 by jalbers           #+#    #+#             */
+/*   Updated: 2023/08/16 14:53:47 by jalbers          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Cat.hpp"
+#ifndef BRAIN_HPP
+#define BRAIN_HPP
 
-Cat::Cat()
-    : Animal("Cat")
-{
-    std::cout << "Cat constructor called" << std::endl;
-    this->_brain = new Brain();
-}
+#include <iostream>
 
-Cat::~Cat()
+class Brain
 {
-    delete (this->_brain);
-    std::cout << "Cat destructor called" << std::endl;
-}
+    private:
+        std::string ideas[100];
 
-void Cat::makeSound(void) const
-{
-    std::cout << "Miauuuuu" << std::endl;
-    return;
-}
+    public:
+        Brain();
+        ~Brain();
+
+};
+#endif

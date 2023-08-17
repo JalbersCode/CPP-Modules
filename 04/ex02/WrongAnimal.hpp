@@ -1,32 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Cat.cpp                                            :+:      :+:    :+:   */
+/*   WrongAnimal.hpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jalbers <jalbers@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/08/16 11:54:23 by jalbers           #+#    #+#             */
-/*   Updated: 2023/08/17 12:31:15 by jalbers          ###   ########.fr       */
+/*   Created: 2023/08/16 11:46:04 by jalbers           #+#    #+#             */
+/*   Updated: 2023/08/16 12:44:24 by jalbers          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Cat.hpp"
+#ifndef WRONG_ANIMAL_HPP
+#define WRONG_ANIMAL_HPP
 
-Cat::Cat()
-    : Animal("Cat")
-{
-    std::cout << "Cat constructor called" << std::endl;
-    this->_brain = new Brain();
-}
+#include <iostream>
 
-Cat::~Cat()
+class WrongAnimal
 {
-    delete (this->_brain);
-    std::cout << "Cat destructor called" << std::endl;
-}
+    private:
+        std::string  _type;
 
-void Cat::makeSound(void) const
-{
-    std::cout << "Miauuuuu" << std::endl;
-    return;
-}
+    public:
+        WrongAnimal();
+        ~WrongAnimal();
+        WrongAnimal(std::string type_name);
+        std::string getType(void) const;
+        void    makeSound(void) const;
+
+};
+#endif

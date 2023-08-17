@@ -1,32 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Cat.cpp                                            :+:      :+:    :+:   */
+/*   ICharacter.hpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jalbers <jalbers@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/08/16 11:54:23 by jalbers           #+#    #+#             */
-/*   Updated: 2023/08/17 12:31:15 by jalbers          ###   ########.fr       */
+/*   Created: 2023/08/17 14:22:07 by jalbers           #+#    #+#             */
+/*   Updated: 2023/08/17 17:34:12 by jalbers          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Cat.hpp"
+#ifndef ICHARACTER_HPP
+#define ICHARACTER_HPP
 
-Cat::Cat()
-    : Animal("Cat")
-{
-    std::cout << "Cat constructor called" << std::endl;
-    this->_brain = new Brain();
-}
+#include <iostream>
 
-Cat::~Cat()
-{
-    delete (this->_brain);
-    std::cout << "Cat destructor called" << std::endl;
-}
+class AMateria;
 
-void Cat::makeSound(void) const
+class ICharacter
 {
-    std::cout << "Miauuuuu" << std::endl;
-    return;
-}
+public:
+    virtual ~ICharacter() {}
+    virtual std::string const &getName() const = 0;
+    virtual void equip(AMateria *m) = 0;
+    virtual void unequip(int idx) = 0;
+    virtual void use(int idx, ICharacter &target) = 0;
+};
+#endif

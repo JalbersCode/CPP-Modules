@@ -1,32 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Cat.cpp                                            :+:      :+:    :+:   */
+/*   Cure.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jalbers <jalbers@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/08/16 11:54:23 by jalbers           #+#    #+#             */
-/*   Updated: 2023/08/17 12:31:15 by jalbers          ###   ########.fr       */
+/*   Created: 2023/08/17 14:41:36 by jalbers           #+#    #+#             */
+/*   Updated: 2023/08/17 16:49:27 by jalbers          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Cat.hpp"
+#include "Cure.hpp"
 
-Cat::Cat()
-    : Animal("Cat")
+Cure::Cure()
+    : AMateria("cure")
 {
-    std::cout << "Cat constructor called" << std::endl;
-    this->_brain = new Brain();
 }
 
-Cat::~Cat()
+Cure::~Cure()
 {
-    delete (this->_brain);
-    std::cout << "Cat destructor called" << std::endl;
 }
 
-void Cat::makeSound(void) const
+void Cure::use(ICharacter &target)
 {
-    std::cout << "Miauuuuu" << std::endl;
-    return;
+    std::cout << "* heals " << target.getName()<< "'s wounds *" << std::endl;  
 }

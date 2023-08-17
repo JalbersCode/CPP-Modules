@@ -1,32 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Cat.cpp                                            :+:      :+:    :+:   */
+/*   WrongCat.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jalbers <jalbers@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/16 11:54:23 by jalbers           #+#    #+#             */
-/*   Updated: 2023/08/17 12:31:15 by jalbers          ###   ########.fr       */
+/*   Updated: 2023/08/16 16:08:37 by jalbers          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Cat.hpp"
+#include "WrongCat.hpp"
 
-Cat::Cat()
-    : Animal("Cat")
+WrongCat::WrongCat()
+    : WrongAnimal("WrongCat")
 {
-    std::cout << "Cat constructor called" << std::endl;
-    this->_brain = new Brain();
+    std::cout << "WrongCat constructor called" << std::endl;
 }
 
-Cat::~Cat()
+WrongCat::~WrongCat()
 {
-    delete (this->_brain);
-    std::cout << "Cat destructor called" << std::endl;
+    std::cout << "WrongCat destructor called" << std::endl;
 }
 
-void Cat::makeSound(void) const
+void    WrongCat::makeSound(void) const
 {
     std::cout << "Miauuuuu" << std::endl;
-    return;
+    return;    
 }

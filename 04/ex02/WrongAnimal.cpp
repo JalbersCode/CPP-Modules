@@ -1,39 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Animal.cpp                                         :+:      :+:    :+:   */
+/*   WrongAnimal.cpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jalbers <jalbers@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/16 11:46:48 by jalbers           #+#    #+#             */
-/*   Updated: 2023/08/17 12:30:42 by jalbers          ###   ########.fr       */
+/*   Updated: 2023/08/16 16:03:06 by jalbers          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Animal.hpp"
+#include "WrongAnimal.hpp"
 
-Animal::Animal()
+WrongAnimal::WrongAnimal()
 {
-    std::cout << "Animal constructor called" << std::endl;
+    std::cout << "WrongAnimal constructor called" << std::endl;
 }
 
-Animal::~Animal()
+WrongAnimal::~WrongAnimal()
 {
-    std::cout << "Animal destructor called" << std::endl;
+    std::cout << "WrongAnimal destructor called" << std::endl;
 }
 
-Animal::Animal(std::string type_name)
+WrongAnimal::WrongAnimal(std::string type_name)
     : _type(type_name)
 {
-    std::cout << "Animal constructor called" << std::endl;
 }
 
-std::string Animal::getType(void) const
+std::string WrongAnimal::getType(void) const
 {
     return (this->_type);
 }
 
-void    Animal::makeSound(void) const
+void    WrongAnimal::makeSound(void) const
 {
     std::cout << "wauranshurissssss ***generic animal sound***" << std::endl;
     return;    

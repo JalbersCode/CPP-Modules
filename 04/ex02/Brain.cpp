@@ -1,32 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Cat.cpp                                            :+:      :+:    :+:   */
+/*   Brain.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jalbers <jalbers@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/08/16 11:54:23 by jalbers           #+#    #+#             */
-/*   Updated: 2023/08/17 12:31:15 by jalbers          ###   ########.fr       */
+/*   Created: 2023/08/16 14:56:56 by jalbers           #+#    #+#             */
+/*   Updated: 2023/08/16 16:10:04 by jalbers          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Cat.hpp"
+#include "Brain.hpp"
 
-Cat::Cat()
-    : Animal("Cat")
+Brain::Brain()
 {
-    std::cout << "Cat constructor called" << std::endl;
-    this->_brain = new Brain();
+    std::cout << "Brain constructor called" << std::endl;
 }
 
-Cat::~Cat()
+Brain::~Brain()
 {
-    delete (this->_brain);
-    std::cout << "Cat destructor called" << std::endl;
-}
-
-void Cat::makeSound(void) const
-{
-    std::cout << "Miauuuuu" << std::endl;
-    return;
+    std::cout << "Brain destructor called" << std::endl;
 }

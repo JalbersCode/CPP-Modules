@@ -1,32 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Cat.cpp                                            :+:      :+:    :+:   */
+/*   AMateria.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jalbers <jalbers@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/08/16 11:54:23 by jalbers           #+#    #+#             */
-/*   Updated: 2023/08/17 12:31:15 by jalbers          ###   ########.fr       */
+/*   Created: 2023/08/17 13:31:58 by jalbers           #+#    #+#             */
+/*   Updated: 2023/08/17 17:35:26 by jalbers          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Cat.hpp"
+#ifndef AMATERIA_HPP
+#define AMATERIA_HPP
 
-Cat::Cat()
-    : Animal("Cat")
-{
-    std::cout << "Cat constructor called" << std::endl;
-    this->_brain = new Brain();
-}
+#include <iostream>
+#include "ICharacter.hpp"
 
-Cat::~Cat()
+class AMateria
 {
-    delete (this->_brain);
-    std::cout << "Cat destructor called" << std::endl;
-}
+private:
+    const std::string _type;
 
-void Cat::makeSound(void) const
-{
-    std::cout << "Miauuuuu" << std::endl;
-    return;
-}
+protected:
+    //[...]
+
+public:
+    AMateria(std::string const &type);
+    //[...]
+    std::string const &getType() const; // Returns the materia type
+    virtual AMateria *clone() const = 0;
+    virtual void use(ICharacter &target);
+};
+#endif

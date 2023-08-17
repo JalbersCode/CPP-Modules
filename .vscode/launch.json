@@ -5,7 +5,7 @@
             "name": "Debug executable",
             "type": "cppdbg",
             "request": "launch",
-            "program": "${workspaceFolder}/04/ex01/Brain",
+            "program": "${workspaceFolder}/04/ex01/Brain", // Edit path if required
             "args": [],  // Command-line arguments for your program
             "stopAtEntry": false,
             "cwd": "${workspaceFolder}",

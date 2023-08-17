@@ -1,32 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Cat.cpp                                            :+:      :+:    :+:   */
+/*   Character.hpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jalbers <jalbers@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/08/16 11:54:23 by jalbers           #+#    #+#             */
-/*   Updated: 2023/08/17 12:31:15 by jalbers          ###   ########.fr       */
+/*   Created: 2023/08/17 15:17:13 by jalbers           #+#    #+#             */
+/*   Updated: 2023/08/17 17:34:53 by jalbers          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Cat.hpp"
+#ifndef CHARACTER_HPP
+#define CHARACTER_HPP
 
-Cat::Cat()
-    : Animal("Cat")
-{
-    std::cout << "Cat constructor called" << std::endl;
-    this->_brain = new Brain();
-}
+#include "ICharacter.hpp"
 
-Cat::~Cat()
+class Character : public ICharacter
 {
-    delete (this->_brain);
-    std::cout << "Cat destructor called" << std::endl;
-}
+private:
+    const std::string _name;
 
-void Cat::makeSound(void) const
-{
-    std::cout << "Miauuuuu" << std::endl;
-    return;
-}
+public:
+    Character(std::string name);
+    ~Character();
+    std::string const &getName() const;
+    void equip(AMateria *m);
+    void unequip(int idx);
+    void use(int idx, ICharacter &target); 
+};
+#endif

@@ -6,7 +6,7 @@
 /*   By: jalbers <jalbers@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/16 11:47:46 by jalbers           #+#    #+#             */
-/*   Updated: 2023/08/17 13:21:02 by jalbers          ###   ########.fr       */
+/*   Updated: 2023/08/17 13:28:55 by jalbers          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,9 @@ int	main(void)
     int     array_size = 4;
     Animal*  animal_array[array_size];
 
+    // CANT CALL THIS:
+    // Animal animal = Animal();
+    
     for (int i = 0; i < array_size; i++)
     {
         if (i % 2 == 0)
