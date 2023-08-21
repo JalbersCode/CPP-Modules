@@ -6,7 +6,7 @@
 /*   By: jalbers <jalbers@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/17 14:22:07 by jalbers           #+#    #+#             */
-/*   Updated: 2023/08/17 17:34:12 by jalbers          ###   ########.fr       */
+/*   Updated: 2023/08/21 14:45:55 by jalbers          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,8 @@
 
 #include <iostream>
 
-class AMateria;
+class ICharacter;
+# include "AMateria.hpp"
 
 class ICharacter
 {
