@@ -6,7 +6,7 @@
 /*   By: jalbers <jalbers@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/17 15:21:55 by jalbers           #+#    #+#             */
-/*   Updated: 2023/08/21 18:26:09 by jalbers          ###   ########.fr       */
+/*   Updated: 2023/08/25 14:44:50 by jalbers          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,17 +15,44 @@
 Character::Character(std::string name)
     : _name(name), _materia_count(0)
 {
-    
 }
 
-Character::Character(const Character& other)
-    : _name(other.getName()), _materia_count(0)
+Character::Character(const Character &other)
+    : _name(other.getName())
 {
+    this->_materia_count = 0;
     for (int i = 0; i < other._materia_count; i++)
         this->equip(other._materia_array[i]->clone());
     for (size_t i = 0; i < other._past_materias.size(); i++)
         this->_past_materias.push_back(other._past_materias[i]->clone());
 }
+
+Character& Character::operator=(const Character &other)
+{
+    for (int i = 0; i < this->_materia_count; i++)
+        delete (_materia_array[i]);
+    for (size_t i = 0; i < this->_past_materias.size(); i++)
+        delete (_past_materias[i]);
+    this->_name = other._name;
+    this->_materia_count = 0;
+    for (int i = 0; i < other._materia_count; i++)
+        this->equip(other._materia_array[i]->clone());
+    for (size_t i = 0; i < other._past_materias.size(); i++)
+        this->_past_materias.push_back(other._past_materias[i]->clone());
+    return (*this);
+}
+
+// Character&  Character::operator=(const Character& other)
+// {
+    
+//     this->_name = other._name;
+//     this->_materia_count = 0;
+//     for (int i = 0; i < other._materia_count; i++)
+//         this->equip(other._materia_array[i]->clone());
+//     for (size_t i = 0; i < other._past_materias.size(); i++)
+//         this->_past_materias.push_back(other._past_materias[i]->clone());
+//     return (*this);
+// }
 
 Character::~Character()
 {
@@ -48,7 +75,7 @@ void Character::equip(AMateria *m)
     while (i < this->_materia_count)
         i++;
     this->_materia_array[i] = m;
-    this->_materia_count++; 
+    this->_materia_count++;
 }
 
 void Character::unequip(int idx)

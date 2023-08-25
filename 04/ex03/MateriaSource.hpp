@@ -1,34 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   AMateria.hpp                                       :+:      :+:    :+:   */
+/*   MateriaSource.hpp                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jalbers <jalbers@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/08/17 13:31:58 by jalbers           #+#    #+#             */
-/*   Updated: 2023/08/25 17:40:32 by jalbers          ###   ########.fr       */
+/*   Created: 2023/08/25 15:32:27 by jalbers           #+#    #+#             */
+/*   Updated: 2023/08/25 16:21:06 by jalbers          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef AMATERIA_HPP
-#define AMATERIA_HPP
+#ifndef MATERIA_SOURCE_HPP
+#define MATERIA_SOURCE_HPP
 
-#include <iostream>
-class AMateria;
-# include "ICharacter.hpp"
+#include "IMateriaSource.hpp"
 
-class AMateria
+class MateriaSource : public IMateriaSource
 {
 private:
-    const std::string _type;
-
-protected:
+    AMateria *_materia_array[4];
+    int _materia_count;
 
 public:
-    AMateria(std::string const &type);
-    virtual ~AMateria();
-    std::string const &getType() const; // Returns the materia type
-    virtual AMateria *clone() const = 0;
-    virtual void use(ICharacter &target);
+    MateriaSource();
+    ~MateriaSource();
+    void learnMateria(AMateria *materia_obj);
+    AMateria *createMateria(std::string const &type);
+    int find_materia_template(std::string const &type);
 };
 #endif

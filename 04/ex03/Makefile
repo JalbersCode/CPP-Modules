@@ -6,7 +6,7 @@
 #    By: jalbers <jalbers@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/08/17 14:25:39 by jalbers           #+#    #+#              #
-#    Updated: 2023/08/17 16:13:37 by jalbers          ###   ########.fr        #
+#    Updated: 2023/08/25 16:09:59 by jalbers          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,8 +15,8 @@ CC			= c++
 FLAGS		= -Wall -Wextra -Werror -std=c++98
 RM			= rm -rf
 
-FILES		= main AMateria Ice Cure Character
-HEADER		= AMateria.hpp ICharacter.hpp Ice.hpp Cure.hpp Character.hpp
+FILES		= main AMateria Ice Cure Character MateriaSource
+HEADER		= AMateria.hpp ICharacter.hpp Ice.hpp Cure.hpp Character.hpp IMateriaSource.hpp MateriaSource.hpp
 OBJDIR		= .objFiles
 SRC			= $(FILES:=.cpp)
 OBJ			= $(addprefix $(OBJDIR)/, $(FILES:=.o))
