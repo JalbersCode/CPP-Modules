@@ -6,7 +6,7 @@
 /*   By: jalbers <jalbers@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/25 15:50:50 by jalbers           #+#    #+#             */
-/*   Updated: 2023/08/25 17:39:40 by jalbers          ###   ########.fr       */
+/*   Updated: 2023/08/26 22:07:45 by jalbers          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,11 +20,31 @@ MateriaSource::MateriaSource()
 MateriaSource::~MateriaSource()
 {
     for (int i = 0; i < _materia_count; i++)
-        delete (_materia_array[i]);
+    {
+        if (_materia_array[i])
+        {
+            delete (_materia_array[i]);
+            _materia_array[i] = NULL;
+        }
+    }
+}
+
+bool    MateriaSource::checkIfDuplicate(AMateria *materia_obj)
+{
+    int i = 0;
+    while (i < _materia_count)
+    {
+        if (materia_obj == _materia_array[i])
+            return (true);
+        i++;
+    }
+    return (false);
 }
 
 void MateriaSource::learnMateria(AMateria *materia_obj)
 {
+    if (checkIfDuplicate(materia_obj))
+        materia_obj = materia_obj->clone();
     if (_materia_count == 4)
     {
         delete (_materia_array[3]);

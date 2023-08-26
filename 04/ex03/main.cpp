@@ -6,7 +6,7 @@
 /*   By: jalbers <jalbers@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/17 13:31:21 by jalbers           #+#    #+#             */
-/*   Updated: 2023/08/25 17:39:11 by jalbers          ###   ########.fr       */
+/*   Updated: 2023/08/26 22:11:30 by jalbers          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,23 +62,18 @@ int main(void)
     delete(char4);
     delete(char5);
 
+    */
 
     // MateriaSource
     Character *char6 = new Character("Hulk");
     MateriaSource   materia_source = MateriaSource();
     Ice *ice2 = new Ice();
     Cure *cure2 = new Cure();
-    materia_source.learnMateria(ice2);
-    materia_source.learnMateria(ice2);
-    materia_source.learnMateria(ice2);
-    materia_source.learnMateria(ice2);
     materia_source.learnMateria(cure2);
-    AMateria* materia_obj = materia_source.createMateria("cure");
-    std::cout << materia_obj->getType() << std::endl;
-    materia_obj->use(*char6);
-    delete(ice2);
-    delete(cure2);
-    delete(materia_obj);
+    materia_source.learnMateria(ice2);
+    materia_source.learnMateria(ice2);
+    materia_source.learnMateria(ice2);
+    materia_source.learnMateria(ice2);
     delete(char6);
 
     // This will still work if AMateria use function is not declared as virtual
@@ -88,11 +83,7 @@ int main(void)
     delete(char7);
     delete(ice3);
 
-    return (0);
-    */
-
-
-
+    // SUBJECT MAIN
     IMateriaSource *src = new MateriaSource();
     src->learnMateria(new Ice());
     src->learnMateria(new Cure());

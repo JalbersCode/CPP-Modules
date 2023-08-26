@@ -6,7 +6,7 @@
 /*   By: jalbers <jalbers@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/17 14:41:36 by jalbers           #+#    #+#             */
-/*   Updated: 2023/08/21 18:10:08 by jalbers          ###   ########.fr       */
+/*   Updated: 2023/08/26 21:15:41 by jalbers          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,6 @@ void Cure::use(ICharacter &target)
 
 AMateria* Cure::clone() const
 {
-    Cure* cure_clone = new Cure(*this);
+    Cure* cure_clone = new Cure();
     return (cure_clone);
 }
