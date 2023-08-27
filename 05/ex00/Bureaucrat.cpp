@@ -6,7 +6,7 @@
 /*   By: jalbers <jalbers@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/26 23:21:17 by jalbers           #+#    #+#             */
-/*   Updated: 2023/08/27 00:24:36 by jalbers          ###   ########.fr       */
+/*   Updated: 2023/08/27 17:40:30 by jalbers          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,3 +63,15 @@ void Bureaucrat::decrementGrade()
         throw(Bureaucrat::GradeTooHighException());
     this->_grade++;
 }
+
+std::ostream &operator<<(std::ostream &os, const Bureaucrat &obj)
+{
+    os << obj.getName() << ", bureaucrat grade " << obj.getGrade();
+    return os;
+}
+
+
+
+
+
+
