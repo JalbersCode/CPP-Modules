@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ShrubberyCreationForm.cpp                                           :+:      :+:    :+:   */
+/*   RobotomyRequestForm.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jalbers <jalbers@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -10,19 +10,19 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ShrubberyCreationForm.hpp"
+#include "RobotomyRequestForm.hpp"
 
-ShrubberyCreationForm::ShrubberyCreationForm(const std::string &target)
-    : AForm("Shrubbery Creation Form", 145, 137), _target(target)
+RobotomyRequestForm::RobotomyRequestForm(const std::string &target)
+    : AForm("Robotomy Request Form", 72, 45), _target(target)
 {
 }
 
-ShrubberyCreationForm::ShrubberyCreationForm(const ShrubberyCreationForm &other)
-    : AForm(other.getName(), 145, 137), _target(other.getTarget())
+RobotomyRequestForm::RobotomyRequestForm(const RobotomyRequestForm &other)
+    : AForm(other.getName(), 72, 45), _target(other.getTarget())
 {
 }
 
-ShrubberyCreationForm &ShrubberyCreationForm::operator=(const ShrubberyCreationForm &other)
+RobotomyRequestForm &RobotomyRequestForm::operator=(const RobotomyRequestForm &other)
 {
     if (this != &other)
     {
@@ -30,38 +30,22 @@ ShrubberyCreationForm &ShrubberyCreationForm::operator=(const ShrubberyCreationF
     return (*this);
 }
 
-ShrubberyCreationForm::~ShrubberyCreationForm()
+RobotomyRequestForm::~RobotomyRequestForm()
 {
 }
 
-void ShrubberyCreationForm::performAction() const
+void RobotomyRequestForm::performAction() const
 {
-    std::ofstream outputFile((this->_target + "_shrubbery").c_str());
-
-    if (outputFile.is_open()) {
-        outputFile << "  ccee88oo\n"
-                   << " C8O8O8Q8PoOb o8oo\n"
-                   << "dOB69QO8PdUOpugoO9bD\n"
-                   << "CgggbU8OU qOp qOdoUOdcb\n"
-                   << "  6OuU  /p u gcoUodpP\n"
-                   << "    \\\\\\//  /douUP\n"
-                   << "      \\\\\\////\n"
-                   << "       |||/\\ \n"
-                   << "       |||\\/ \n"
-                   << "       |||||  \n"
-                   << "       |||||  \n"
-                   << "       |||||  \n"
-                   << "       |||||  \n"
-                   << "       |||||   \n"
-                   << "  .....//||||\\....";
-        outputFile.close();
-        std::cout << "Shrubbery file created: " << this->_target << "_shrubbery" << std::endl;
-    } else {
-        std::cerr << "Unable to create shrubbery file." << std::endl;
-    }
+    std::cout << "Drrrr drrrr drr\n";
+    std::srand(static_cast<unsigned int>(std::time(NULL)));
+    int randomValue = std::rand();
+    if (randomValue % 2 == 0)
+        std::cout << this->_target << " has been robotomized.\n";
+    else
+        std::cout << "Robotomy failed.\n";
 }
 
-const std::string& ShrubberyCreationForm::getTarget(void) const
+const std::string& RobotomyRequestForm::getTarget(void) const
 {
     return (this->_target);
 }

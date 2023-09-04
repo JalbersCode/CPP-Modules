@@ -6,7 +6,7 @@
 #    By: jalbers <jalbers@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/08/26 23:19:35 by jalbers           #+#    #+#              #
-#    Updated: 2023/08/28 14:56:42 by jalbers          ###   ########.fr        #
+#    Updated: 2023/09/04 15:53:59 by jalbers          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,8 +15,8 @@ CC			= c++
 FLAGS		= -Wall -Wextra -Werror -std=c++98
 RM			= rm -rf
 
-FILES		= main Bureaucrat AForm PresidentialPardonForm ShrubberyCreationForm
-HEADER		= Bureaucrat.hpp AForm.hpp PresidentialPardonForm.hpp ShrubberyCreationForm.hpp
+FILES		= main Bureaucrat AForm PresidentialPardonForm ShrubberyCreationForm RobotomyRequestForm
+HEADER		= Bureaucrat.hpp AForm.hpp PresidentialPardonForm.hpp ShrubberyCreationForm.hpp RobotomyRequestForm.hpp
 OBJDIR		= .objFiles
 SRC			= $(FILES:=.cpp)
 OBJ			= $(addprefix $(OBJDIR)/, $(FILES:=.o))
