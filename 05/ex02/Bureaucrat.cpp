@@ -6,7 +6,7 @@
 /*   By: jalbers <jalbers@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/26 23:21:17 by jalbers           #+#    #+#             */
-/*   Updated: 2023/08/27 20:49:17 by jalbers          ###   ########.fr       */
+/*   Updated: 2023/08/28 13:59:30 by jalbers          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,15 @@ Bureaucrat::Bureaucrat(const std::string &name, const int &grade)
     : _name(name)
 {
     if (grade < 1)
+    {
+        std::cout << "Cannot create Bureaucrat. ";
         throw(Bureaucrat::GradeTooHighException());
+    }
     if (grade > 150)
+    {
+        std::cout << "Cannot create Bureaucrat. ";
         throw(Bureaucrat::GradeTooLowException());
+    }
     else
         this->_grade = grade;
 }
@@ -62,7 +68,10 @@ const int &Bureaucrat::getGrade() const
 void Bureaucrat::incrementGrade()
 {
     if (this->_grade == 1)
+    {
+        std::cout << "Cannot increment grade. ";
         throw(Bureaucrat::GradeTooHighException());
+    }
     this->_grade--;
 }
 
@@ -73,10 +82,14 @@ void Bureaucrat::decrementGrade()
     this->_grade++;
 }
 
+void Bureaucrat::executeForm(AForm const &form)
+{
+    form.execute(*this);
+    std::cout << this->_name << " executed " << form.getName() << std::endl;
+}
+
 std::ostream &operator<<(std::ostream &os, const Bureaucrat &obj)
 {
     os << obj.getName() << ", bureaucrat grade " << obj.getGrade();
-    // (void)obj;
-    // os << obj.getName() << ", bureaucrat grade " << obj.getGrade();
     return os;
 }

@@ -16,9 +16,15 @@ AForm::AForm(std::string name, int grade1, int grade2)
     : _name(name), _is_signed(false)
 {
     if (grade1 < 1 || grade2 < 1)
+    {
+        std::cout << "Cannot create Form. ";
         throw(AForm::GradeTooHighException());
+    }
     if (grade1 > 150 || grade2 > 150)
+    {
+        std::cout << "Cannot create Form. ";
         throw(AForm::GradeTooLowException());
+    }
     this->_grade_for_signing = grade1;
     this->_grade_for_executing = grade2;
 }
@@ -47,15 +53,24 @@ void AForm::beSigned(const Bureaucrat &bureaucrat)
     if (grade <= this->getGradeForSigning())
         this->_is_signed = true;
     else
+    {
+        std::cout << "Cannot sign Form. ";
         throw(AForm::GradeTooLowException());
+    }
 }
 
 void AForm::execute(Bureaucrat const &executor) const
 {
     if (!this->_is_signed)
-        throw (AForm::FormNotSigned());
+    {
+        std::cout << "Cannot execute Form. ";
+        throw(AForm::FormNotSigned());
+    }
     else if (executor.getGrade() > this->getGradeForExecution())
+    {
+        std::cout << "Cannot execute Form. ";
         throw(AForm::GradeTooLowException());
+    }
     else
         this->performAction();
 }

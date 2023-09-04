@@ -6,7 +6,7 @@
 /*   By: jalbers <jalbers@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/26 23:21:49 by jalbers           #+#    #+#             */
-/*   Updated: 2023/08/27 20:49:34 by jalbers          ###   ########.fr       */
+/*   Updated: 2023/08/28 13:25:12 by jalbers          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,7 @@ public:
     const int &getGrade() const;
     void incrementGrade();
     void decrementGrade();
+    void executeForm(AForm const &form);
     class GradeTooLowException : public std::exception
     {
     public:
