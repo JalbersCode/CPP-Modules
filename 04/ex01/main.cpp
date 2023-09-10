@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jalbers <jalbers@student.42.fr>            +#+  +:+       +#+        */
+/*   By: josephalbers <josephalbers@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/16 11:47:46 by jalbers           #+#    #+#             */
-/*   Updated: 2023/08/17 13:21:02 by jalbers          ###   ########.fr       */
+/*   Updated: 2023/09/10 17:58:38 by josephalber      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,5 +38,12 @@ int	main(void)
     
     for (int i = 0; i < array_size; i++)
             delete(animal_array[i]);
+
+
+    // test this for memory leaks..
+    Cat *cat1 = new Cat();
+    Cat *cat2 = new Cat();
+    cat2 = cat1; 
+            
     return (0);
 }

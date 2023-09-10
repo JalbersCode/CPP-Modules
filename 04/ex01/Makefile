@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: jalbers <jalbers@student.42.fr>            +#+  +:+       +#+         #
+#    By: josephalbers <josephalbers@student.42.f    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/08/16 11:47:10 by jalbers           #+#    #+#              #
-#    Updated: 2023/08/16 15:19:43 by jalbers          ###   ########.fr        #
+#    Updated: 2023/09/10 17:52:40 by josephalber      ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
