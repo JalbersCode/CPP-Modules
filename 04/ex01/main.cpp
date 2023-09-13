@@ -16,34 +16,36 @@
 
 #include <cstdlib>
 
-// void*	operator	new(size_t size) throw(std::bad_alloc)
-// {
-//     std::cout << "Allocating " << size << " bytes" << std::endl;
+void*	operator	new(size_t size) throw(std::bad_alloc)
+{
+    std::cout << "Allocating " << size << " bytes" << std::endl;
 
-//     return (malloc(size));
-// }
+    return (malloc(size));
+}
 
 int	main(void)
 {
-    int     array_size = 4;
-    Animal*  animal_array[array_size];
+    // int     array_size = 4;
+    // Animal*  animal_array[array_size];
 
-    for (int i = 0; i < array_size; i++)
-    {
-        if (i % 2 == 0)
-            animal_array[i] = new Dog();
-        else
-            animal_array[i] = new Cat();
-    }
+    // for (int i = 0; i < array_size; i++)
+    // {
+    //     if (i % 2 == 0)
+    //         animal_array[i] = new Dog();
+    //     else
+    //         animal_array[i] = new Cat();
+    // }
     
-    for (int i = 0; i < array_size; i++)
-            delete(animal_array[i]);
+    // for (int i = 0; i < array_size; i++)
+    //         delete(animal_array[i]);
 
 
     // test this for memory leaks..
     Cat *cat1 = new Cat();
     Cat *cat2 = new Cat();
-    cat2 = cat1; 
+    *cat2 = *cat1;
             
+    delete(cat1);
+    delete(cat2);
     return (0);
 }

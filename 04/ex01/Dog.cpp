@@ -25,6 +25,25 @@ Dog::~Dog()
     std::cout << "Dog destructor called" << std::endl;
 }
 
+Dog::Dog(const Dog& other)
+{
+    std::cout << "Copy constructor called" << std::endl;
+    this->_type = other._type;
+    this->_brain = new Brain();
+}
+
+Dog& Dog::operator=(const Dog& other)
+{
+    std::cout << "Copy assignemnt constructor called" << std::endl;
+    if (this != &other)
+    {
+        this->_type = other._type;
+        delete(this->_brain);
+        this->_brain = new Brain();
+    }
+    return (*this);
+}
+
 void    Dog::makeSound(void) const
 
 {
