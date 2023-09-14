@@ -6,7 +6,7 @@
 /*   By: josephalbers <josephalbers@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/11 11:59:32 by josephalber       #+#    #+#             */
-/*   Updated: 2023/09/11 12:22:17 by josephalber      ###   ########.fr       */
+/*   Updated: 2023/09/14 17:49:27 by josephalber      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,6 @@ int	main(void)
     std::cout << &data << std::endl;
     std::cout << raw << std::endl;
     std::cout << ptr1 << std::endl;
-        
+    
     return (0);
 }
