@@ -18,10 +18,8 @@
 
 class Animal
 {
-    private:
-        std::string  _type;
-
     protected:
+        std::string  _type;
         Animal();
         Animal(std::string type_name);
     

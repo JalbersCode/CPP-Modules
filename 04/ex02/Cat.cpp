@@ -25,6 +25,25 @@ Cat::~Cat()
     std::cout << "Cat destructor called" << std::endl;
 }
 
+Cat::Cat(const Cat& other)
+{
+    std::cout << "Copy constructor called" << std::endl;
+    this->_type = other._type;
+    this->_brain = new Brain();
+}
+
+Cat& Cat::operator=(const Cat& other)
+{
+    std::cout << "Copy assignemnt constructor called" << std::endl;
+    if (this != &other)
+    {
+        this->_type = other._type;
+        delete(this->_brain);
+        this->_brain = new Brain();
+    }
+    return (*this);
+}
+
 void Cat::makeSound(void) const
 {
     std::cout << "Miauuuuu" << std::endl;
