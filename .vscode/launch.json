@@ -5,7 +5,7 @@
             "name": "Debug executable",
             "type": "cppdbg",
             "request": "launch",
-            "program": "${workspaceFolder}/04/ex03/Interfaces", // Edit path if required
+            "program": "${workspaceFolder}/07/ex02/Array", // Edit path if required
             "args": [],  // Command-line arguments for your program
             "stopAtEntry": false,
             "cwd": "${workspaceFolder}",

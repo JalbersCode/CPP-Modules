@@ -20,6 +20,9 @@ DiamondTrap::DiamondTrap(std::string name)
     ScavTrap::_energy_points = 50;
     FragTrap::_attack_damage = 30;
     std::cout << "DiamondTrap " << name << " has been created." << std::endl;
+    std::cout << ScavTrap::get_attack_damage() << std::endl;
+    std::cout << FragTrap::get_attack_damage() << std::endl;
+    
 }
 
 DiamondTrap::~DiamondTrap()
