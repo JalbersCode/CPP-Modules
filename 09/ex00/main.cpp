@@ -10,23 +10,22 @@
 /*                                                                            */
 /******************************************************************************/
 
-#include "MutantStack.hpp"
-#include <vector>
+#include "BitcoinExchange.hpp"
 
-int	main(void)
+int main(int argc, char *argv[])
 {
-    MutantStack<int> mutant;
+    Timer timer = Timer("main");
 
-    mutant.push(1);
-    mutant.push(2);
-    mutant.push(3);
-    mutant.push(4);
-
-    MutantStack<int>::iterator it = mutant.begin();
-    // MutantStack<int>::iterator it = std::stack<int>::c.begin();
-
-    for (; it != mutant.end(); it++)
-        std::cout << *it << std::endl;
-
+    if (argc != 2)
+        return 0;
+    BitcoinExchange btcExchange;
+    try
+    {
+        btcExchange.handle_input_file(argv[1]);
+    }
+    catch (const std::exception &e)
+    {
+        std::cerr << e.what() << '\n';
+    }
     return (0);
 }

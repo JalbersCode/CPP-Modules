@@ -9,7 +9,7 @@
                 "isDefault": true
             },
             "options": {
-                "cwd": "${workspaceFolder}/07/ex02"  // Edit path if required
+                "cwd": "${workspaceFolder}/09/ex00"  // Edit path if required
             },
             "detail": "Task to build the executable using make."
         }
