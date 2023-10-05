@@ -202,7 +202,7 @@ std::vector<int> &PmergeMe::merge_sort_vector(std::vector<int> &input, int start
         half1 = std::vector<int>(input.begin(), input.begin() + midpoint);
         half2 = std::vector<int>(input.begin() + midpoint, input.end());
         half1 = merge_sort_vector(input, 0, midpoint);
-        half1 = merge_sort_vector(input, midpoint + 1, )
+        half1 = merge_sort_vector(input, midpoint + 1, );
         // half1 = std::vector<int>(input.begin(), input.begin() + midpoint);
         // half2 = std::vector<int>(input.begin() + midpoint, input.end());
     }
