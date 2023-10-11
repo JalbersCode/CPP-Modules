@@ -1,14 +1,14 @@
-/******************************************************************************/
+/* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*                                                      :+:      :+:    :+:   */
+/*   PmergeMe.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*                                                  +#+  +:+       +#+        */
+/*   By: jalbers <jalbers@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Jalbers42                                         #+#    #+#             */
-/*   https://github.com/Jalbers42                     ###   ###########       */
+/*   Created: Invalid date        by                   #+#    #+#             */
+/*   Updated: 2023/10/11 16:24:40 by jalbers          ###   ########.fr       */
 /*                                                                            */
-/******************************************************************************/
+/* ************************************************************************** */
 
 #ifndef PMERGE_ME_HPP
 #define PMERGE_ME_HPP
@@ -35,6 +35,7 @@ class PmergeMe
         std::multimap<std::string, int> _multimap;
 
     public:
+        PmergeMe();
         PmergeMe(char *input[], const std::string &label);
         ~PmergeMe();
         PmergeMe(const PmergeMe& other);
@@ -43,7 +44,12 @@ class PmergeMe
         template <typename Container>
         void print_container(Container& container);
         std::vector<int> &get_vector();
-        std::vector<int> &merge_sort_vector(std::vector<int> &input);
-
+        std::list<int> &get_list();
+        void set_vector(std::vector<int> new_vector);
+        void set_vector(char *input[]);
+        void set_list(char *input[]);
+        void set_list(std::list<int> new_list);
+        static std::vector<int> merge_sort_vector(std::vector<int> &input, int start, int end);
+        static std::list<int> merge_sort_list(std::list<int> &input, int start, int end);
 };
 #endif

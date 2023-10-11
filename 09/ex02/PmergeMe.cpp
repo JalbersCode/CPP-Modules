@@ -1,98 +1,85 @@
-/******************************************************************************/
+/* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*                                                      :+:      :+:    :+:   */
+/*   PmergeMe.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*                                                  +#+  +:+       +#+        */
+/*   By: jalbers <jalbers@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Jalbers42                                         #+#    #+#             */
-/*   https://github.com/Jalbers42                     ###   ###########       */
+/*   Created: Invalid date        by                   #+#    #+#             */
+/*   Updated: 2023/10/11 16:25:02 by jalbers          ###   ########.fr       */
 /*                                                                            */
-/******************************************************************************/
+/* ************************************************************************** */
 
 #include "PmergeMe.hpp"
 
-// template <typename Container, typename Operation>
-// void fill_container_old(Container& container, char* input[], Operation operation) {
-//     int i = 0;
-//     while (input[i]) {
-//         int num = std::atoi(input[i]);
-//         (container.*operation)(num); // Call the specified member function on the container
-//         i++;
-//     }
-// }
-
 template <typename Container>
 void fill_container(Container& container, char* input[], void(*function)(Container&, int)) {
-    int i = 0;
-    while (input[i]) {
-        int num = std::atoi(input[i]);
-        function(container, num); // Call the specified member function on the container
-        i++;
-    }
+	int i = 0;
+	while (input[i])
+	{
+		int num = std::atoi(input[i]);
+		function(container, num);
+		i++;
+	}
 }
 
 template <typename Container>
 void PmergeMe::print_container(Container& container) {
-    typename Container::iterator   it;
+	typename Container::iterator   it;
 
-    it = container.begin();
-    while (it != container.end()) {
-        std::cout << *it << " ";
-        it++;
-    }
+	it = container.begin();
+	while (it != container.end()) {
+		std::cout << *it << " ";
+		it++;
+	}
 }
 
 template <typename Container>
 void    my_insert(Container &container, int num)
 {
-    container.insert(num);
+	container.insert(num);
 }
 
 template <typename Container>
 void    my_push_back(Container &container, int num)
 {
-    container.push_back(num);
+	container.push_back(num);
+}
+
+PmergeMe::PmergeMe()
+{
+	
 }
 
 PmergeMe::PmergeMe(char *input[], const std::string &label)
 {
-    // void (std::vector<int>::*vectorPushBack)(const int&) = &std::vector<int>::push_back;
-    // fill_container(_vector, input, vectorPushBack);
-    // void (std::list<int>::*listPushFront)(const int&) = &std::list<int>::push_front;
-    // std::set<int>::iterator (std::set<int>::*setInsert)(const int&) = &std::set<int>::insert;
-
-    // {
-    //     Timer time = Timer("Fill vector");
-    //     fill_container_old(_vector, input, &std::vector<int>::push_back);
-    // }
-    if (label == "vector")
-    {
-        Timer time = Timer("Fill vector");
-        fill_container(_vector, input, &my_push_back);
-    }
-    else if (label == "deque")
-    {
-        Timer time = Timer("Fill deque");
-        fill_container(_deque, input, &my_push_back);
-    }
-    else if (label == "list")
-    {
-        Timer time = Timer("Fill list");
-        fill_container(_list, input, &my_push_back);
-    }
-    else if (label == "set")
-    {
-        Timer time = Timer("Fill set");
-        fill_container(_set, input, &my_insert);
-    }
-    else if (label == "multiset")
-    {
-        Timer time = Timer("Fill multiset");
-        fill_container(_multiset, input, &my_insert);
-    }
-    else
-        std::cout << "Invalid label" << std::endl;
+	if (label == "vector")
+	{
+		Timer time = Timer("Fill vector");
+		fill_container(_vector, input, &my_push_back);
+	}
+	else if (label == "deque")
+	{
+		Timer time = Timer("Fill deque");
+		fill_container(_deque, input, &my_push_back);
+	}
+	else if (label == "list")
+	{
+		Timer time = Timer("Fill list");
+		fill_container(_list, input, &my_push_back);
+	}
+	else if (label == "set")
+	{
+		Timer time = Timer("Fill set");
+		fill_container(_set, input, &my_insert);
+	}
+	else if (label == "multiset")
+	{
+		Timer time = Timer("Fill multiset");
+		fill_container(_multiset, input, &my_insert);
+	}
+	else
+		std::cout << "Invalid label" << std::endl;
 }
 
 
@@ -102,116 +89,152 @@ PmergeMe::~PmergeMe()
 
 PmergeMe::PmergeMe(const PmergeMe& other)
 {
-    (void)other;
+	(void)other;
 }
 
 PmergeMe& PmergeMe::operator=(const PmergeMe& other)
 {
-    if (this != &other)
-    {
-        
-    }
-    return (*this);
+	if (this != &other)
+	{
+		
+	}
+	return (*this);
 }
 
 void    PmergeMe::print_containers()
 {
-    {
-        Timer time = Timer("Print vector");
-        print_container(_vector);
-    }
-    {
-        Timer time = Timer("Print deque");
-        print_container(_deque);
-    }
-    {
-        Timer time = Timer("Print list");
-        print_container(_list);
-    }
-    {
-        Timer time = Timer("Print set");
-        print_container(_set);
-    }
-    {
-        Timer time = Timer("Print multiset");
-        print_container(_multiset);
-    }
+	{
+		Timer time = Timer("Print vector");
+		print_container(_vector);
+	}
+	{
+		Timer time = Timer("Print deque");
+		print_container(_deque);
+	}
+	{
+		Timer time = Timer("Print list");
+		print_container(_list);
+	}
+	{
+		Timer time = Timer("Print set");
+		print_container(_set);
+	}
+	{
+		Timer time = Timer("Print multiset");
+		print_container(_multiset);
+	}
 }
 
 std::vector<int> &PmergeMe::get_vector()
 {
-    return (_vector);
+	return (_vector);
 }
 
-// int split_vector(const std::vector<int> &original, std::vector<int> &half1, std::vector<int> &half2)
-// {
-//     size_t midpoint = original.size() / 2;
-//     if (midpoint == 0)
-//         return (1);
-//     half1 = std::vector<int>(original.begin(), original.begin() + midpoint);
-//     half2 = std::vector<int>(original.begin() + midpoint, original.end());
-//     return (0);
-// }
-// int split_vector(const std::vector<int> &original, std::vector<int> &half1, std::vector<int> &half2)
-// {
-//     size_t midpoint = original.size() / 2;
-//     if (midpoint == 0)
-//         return 1;
-
-//     // Assign references to portions of the original vector
-//     half1 = std::vector<int>(original.begin(), original.begin() + midpoint);
-//     half2 = std::vector<int>(original.begin() + midpoint, original.end());
-    
-//     return 0;
-// }
-
-// void    PmergeMe::merge_sort_vector(std::vector<int> &input)
-// {
-//     std::vector<int> half1;
-//     std::vector<int> half2;
-//     if (split_vector(input, half1, half2) == 0)
-//     {
-//         half1[0] = 420;
-//         half2[0] = 420;
-//         // merge_sort_vector(half1);
-//         // merge_sort_vector(half2);
-//     }
-// }
-
-int split_vector(const std::vector<int> &original, std::vector<int> &half1, std::vector<int> &half2)
+void    PmergeMe::set_vector(char *input[])
 {
-    size_t midpoint = original.size() / 2;
-    if (midpoint == 0)
-        return 1;
-
-    // Assign references to portions of the original vector
-    half1 = std::vector<int>(original.begin(), original.begin() + midpoint);
-    half2 = std::vector<int>(original.begin() + midpoint, original.end());
-
-    return 0;
+	fill_container(_vector, input, &my_push_back);
 }
 
-std::vector<int> &PmergeMe::merge_sort_vector(std::vector<int> &input, int start, int end)
+void    PmergeMe::set_list(char *input[])
 {
-    std::vector<int> half1;
-    std::vector<int> half2;
+	fill_container(_list, input, &my_push_back);
+}
 
-    if (input.size() > 1)
-    {
-        size_t midpoint = input.size() / 2;
-        half1 = std::vector<int>(input.begin(), input.begin() + midpoint);
-        half2 = std::vector<int>(input.begin() + midpoint, input.end());
-        half1 = merge_sort_vector(input, 0, midpoint);
-        half1 = merge_sort_vector(input, midpoint + 1, );
-        // half1 = std::vector<int>(input.begin(), input.begin() + midpoint);
-        // half2 = std::vector<int>(input.begin() + midpoint, input.end());
-    }
-    // if (split_vector(input, half1, half2) == 0)
-    // {
-    //     (*half1)[0] = 420; // Now this will modify the input vector
-    //     (*half2)[0] = 420; // This too will modify the input vector
-    //     // Call merge_sort_vector recursively if needed
-    //     // merge_sort_vector(half1);
-    //     // merge_sort_vector(half2);
-    // }
+void    PmergeMe::set_vector(std::vector<int> new_vector)
+{
+	_vector = new_vector;  
+}
+
+std::list<int> &PmergeMe::get_list()
+{
+	return (_list);
+}
+
+void    PmergeMe::set_list(std::list<int> new_list)
+{
+	_list = new_list;  
+}
+
+std::vector<int> PmergeMe::merge_sort_vector(std::vector<int> &input, int start, int end)
+{
+	std::vector<int>    half1;
+	std::vector<int>    half2;
+	std::vector<int>    final;
+
+	if ((end - start) > 0)
+	{
+		size_t midpoint = (end + start) / 2;
+
+		half1 = merge_sort_vector(input, start, midpoint);
+		half2 = merge_sort_vector(input, midpoint + 1, end);
+
+		unsigned int i = 0;
+		unsigned int j = 0;
+		while (i < half1.size() && j < half2.size())
+		{
+			if (half1[i] <= half2[j])
+				final.push_back(half1[i++]);
+			else
+				final.push_back(half2[j++]);
+		}
+		while (i < half1.size())
+			final.push_back(half1[i++]);
+		while (j < half2.size())
+			final.push_back(half2[j++]);
+		return (final);
+	}
+	final.push_back(input[start]);
+	return (final);
+}
+
+
+std::list<int> PmergeMe::merge_sort_list(std::list<int> &input, int start, int end)
+{
+	std::list<int>	half1;
+	std::list<int>	half2;
+	std::list<int>	final;
+	std::list<int>::iterator it1;
+	std::list<int>::iterator it2;
+	std::list<int>::iterator it_input;
+
+	if ((end - start) > 0)
+	{
+		size_t midpoint = (end + start) / 2;
+
+		half1 = merge_sort_list(input, start, midpoint);
+		half2 = merge_sort_list(input, midpoint + 1, end);
+		it1 = half1.begin(); 
+		it2 = half2.begin(); 
+
+		unsigned int i = 0;
+		unsigned int j = 0;
+		while (i < half1.size() && j < half2.size())
+		{
+			if (*it1 <= *it2)
+			{
+				final.push_back(*it1++);
+				i++;
+			}
+			else
+			{
+				final.push_back(*it2++);
+				j++;
+			}
+		}
+		while (i < half1.size())
+		{
+			final.push_back(*it1++);
+			i++;
+		}
+		while (j < half2.size())
+		{
+			final.push_back(*it2++);
+			j++;
+		}
+		return (final);
+	}
+	it_input = input.begin();
+	std::advance(it_input, start);
+	final.push_back(*it_input);
+	return (final);
 }
