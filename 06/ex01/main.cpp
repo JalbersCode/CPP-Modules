@@ -15,6 +15,7 @@
 int	main(void)
 {
     Data        data;
+    data.num = 2;
     uintptr_t   raw = Serializer::serialize(&data);
     Data*       ptr1 = Serializer::deserialize(raw);
     

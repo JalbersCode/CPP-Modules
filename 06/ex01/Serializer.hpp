@@ -16,13 +16,16 @@
 #include <iostream>
 #include "Data.hpp"
 
+#if !defined(__cplusplus) || __cplusplus < 201103L // C++98 or older
+    typedef unsigned long uintptr_t; // Change this to match the size of pointers in your system
+#endif
+
 class Serializer
 {
     private:
-
+        Serializer();
 
     public:
-        Serializer();
         ~Serializer();
         Serializer(const Serializer& other);
         Serializer& operator=(const Serializer& other);
