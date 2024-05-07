@@ -34,24 +34,44 @@ ScalarConverter& ScalarConverter::operator=(const ScalarConverter& other)
     return (*this);
 }
 
-double  convertToDouble(std::string str)
+double convertToDouble(const std::string& str)
 {
-    double  num;
-    
-    if (str.length() == 1 && str[0] < 0 + '0' && str[0] > 9 + '0')
-        return (str[0]);
-    try
+    double num = 0;
+    int i = 0;
+    int sign = 1;
+    int decimal_pos = -1;
+    int num_len = str.length();
+
+    if (str[num_len - 1] == 'f')
+        num_len--;
+    if (num_len == 1) 
     {
-        num = std::stod(str);
-    }
-    catch(const std::out_of_range& e)
-    {
-        if (str[0] == '-')
-            num = -std::numeric_limits<double>::infinity();
+        if (isdigit(str[0]))
+            num = str[0] - '0';
         else
-            num = std::numeric_limits<double>::infinity();
+            num = static_cast<int>(str[0]); 
+        return num;
     }
-    return (num);
+    if (str[i] == '-') {
+        sign = -1;
+        i++;
+    }
+    while (str[i]) {
+        if (str[i] == '.')
+            decimal_pos = i;
+        else if (!isdigit(str[i])) {
+            if (!(str[i] == 'f' && !str[i + 1]))
+                throw (std::exception());
+        } 
+        else {
+            num *= 10;
+            num += str[i] - '0';
+        }
+        i++;
+    }
+    if (decimal_pos != -1)
+        num /= std::pow(10, (num_len - decimal_pos - 1));
+    return (sign * num);
 }
 
 void print_char(double num)
@@ -87,8 +107,14 @@ void print_float(double num)
 void print_double(double num)
 {
     std::cout << "double: ";
-    double  d = static_cast<double>(num);
-    std::cout << d << std::endl;
+    if (std::isinf(num)) {
+        if (num < 0)
+            std::cout << "-";
+        std::cout << "inff" << std::endl;
+    } else {
+        double  d = static_cast<double>(num);
+        std::cout << d << std::endl;
+    }
 }
 
 void ScalarConverter::convert(std::string str_literal)
@@ -96,6 +122,7 @@ void ScalarConverter::convert(std::string str_literal)
     try
     {
         double num = convertToDouble(str_literal);
+        // std::cout << "ConvertToDouble: " << num << std::endl;
         print_char(num);
         print_int(num);
         print_float(num);

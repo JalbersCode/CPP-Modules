@@ -15,14 +15,16 @@
 
 #include <iostream>
 #include <limits>
+#include <cmath>
+#include <sstream>
+#include <limits>
 
 class ScalarConverter
 {
     private:
-
+        ScalarConverter();
 
     public:
-        ScalarConverter();
         ~ScalarConverter();
         ScalarConverter(const ScalarConverter& other);
         ScalarConverter& operator=(const ScalarConverter& other);
